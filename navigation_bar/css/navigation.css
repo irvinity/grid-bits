@@ -1,0 +1,40 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+a{
+    color: #000;
+    text-decoration: none !important;
+}
+/* Navigation bar */
+.navigation-bar{
+    padding: 0;
+    margin: 0;
+    width: 0;
+    height: 100vh;
+    overflow: hidden;
+    background-color: crimson;
+}
+.nav-list{
+    height: 100%;
+    width: 100%;
+    padding: 20% 0 20% 5%;
+}
+.nav-header{
+    padding: 10% 10% 0 0;
+    text-align: right;
+}
+.nav-item{
+    font-family: Raleway;
+    list-style-type: none;
+    padding: 10% 0 10% 0;
+    font-size: 1rem;
+}
+/* Main content */
+.main-content{
+    width: 100%;
+    height: auto;
+    float: right;
+    background-color: #1d1d1d;
+    color: #fff;
+}
