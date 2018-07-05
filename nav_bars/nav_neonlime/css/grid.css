@@ -1,0 +1,464 @@
+/*---------------------
+
+    ---------------
+    |G|r|i|d|b|o|x|
+    ---------------
+#To declare a new grid:
+
+    - gbox-size(xs, sm, md, lg, xl)
+
+#To declare a sub grid(sub box):
+
+    - sgbox-size(xs, sm, md, lg, xl)
+    - or just do 'gbox-size' again
+
+#To modify the grid container properties - 
+#You can add class values following this pattern:
+
+    - gbox-name-value
+        - gbox-x-center (Will center the grid container along the X axis as a whole in the page)
+    - gitem-name-value(If it has 'sgbox' class)
+
+#To modify the grid item properties:
+
+    - gitem-name-value
+        - gitem-y-center(Will center the item inside a grid cell along the Y axis)
+
+----------------------*/
+/***-----------
+    Global
+------------***/
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-size: 16px;
+}
+
+/***------------
+    Grid setup
+------------***/
+.grid-nav, div[class~=gbox-raw], div[class~=sgbox-raw] {
+  display: grid;
+  height: 100%;
+  width: 100%;
+}
+
+div[class~=gbox], div[class~=sgbox] {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  grid-auto-flow: row;
+  grid-gap: 1rem;
+}
+
+.grid-nav {
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+}
+
+/* Mixin(Like a function) */
+/***---------------
+    Grid Sizes
+---------------***/
+.gbox {
+  /* default */
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+}
+
+.gbox-xs {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.gbox-sm {
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+}
+
+.gbox-md {
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+}
+
+.gbox-lg {
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+}
+
+.gbox-xl {
+  grid-template-columns: repeat(24, 1fr);
+  grid-template-rows: repeat(24, 1fr);
+}
+
+/***---------------
+    SubGrid Sizes
+---------------***/
+.sgbox {
+  /* default */
+  grid-template-columns: repeat(24, 1fr);
+  grid-template-rows: repeat(24, 1fr);
+}
+
+.sgbox-xs {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.sgbox-sm {
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+}
+
+.sgbox-md {
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+}
+
+.sgbox-lg {
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+}
+
+.sgbox-xl {
+  grid-template-columns: repeat(24, 1fr);
+  grid-template-rows: repeat(24, 1fr);
+}
+
+/***------------------
+    Grid Box Classes
+-------------------***/
+/*----- X axis position -----*/
+.gbox-start-x {
+  justify-content: start;
+}
+
+.gbox-end-x {
+  justify-content: end;
+}
+
+.gbox-center-x {
+  justify-content: center;
+}
+
+.gbox-stretch-x {
+  justify-content: stretch;
+}
+
+.gbox-around-x {
+  justify-content: space-around;
+}
+
+.gbox-between-x {
+  justify-content: space-between;
+}
+
+.gbox-evenly-x {
+  justify-content: space-evenly;
+}
+
+/*----- Y axis position -----*/
+.gbox-start-y {
+  align-content: start;
+}
+
+.gbox-end-y {
+  align-content: end;
+}
+
+.gbox-center-y {
+  align-content: center;
+}
+
+.gbox-stretch-y {
+  align-content: stretch;
+}
+
+.gbox-around-y {
+  align-content: space-around;
+}
+
+.gbox-between-y {
+  align-content: space-between;
+}
+
+.gbox-evenly-y {
+  justify-content: space-evenly;
+}
+
+/*----- Auto Cols/Rows -----*/
+/*----- Auto Flow -----*/
+.gbox-flow-row {
+  grid-auto-flow: row;
+}
+
+.gbox-flow-col {
+  grid-auto-flow: column;
+}
+
+.gbox-flow-ROW {
+  grid-auto-flow: row dense;
+}
+
+.gbox-flow-COL {
+  grid-auto-flow: column dense;
+}
+
+/*----- All Items Position -----*/
+/*----- X axis position -----*/
+.gitems-start-x {
+  justify-items: start;
+}
+
+.gitems-end-x {
+  justify-items: end;
+}
+
+.gitems-center-x {
+  justify-items: center;
+}
+
+/*----- Y axis position -----*/
+.gitems-start-y {
+  align-items: start;
+}
+
+.gitems-end-y {
+  align-items: end;
+}
+
+.gitems-center-y {
+  align-items: center;
+}
+
+/*----- Grid Gap -----*/
+/*----- Rows & Cols Gap -----*/
+.gbox-gap-xs {
+  grid-gap: 0.5rem;
+}
+
+.gbox-gap-sm {
+  grid-gap: 1rem;
+}
+
+.gbox-gap-md {
+  grid-gap: 1.25rem;
+}
+
+.gbox-gap-xl {
+  grid-gap: 1.5rem;
+}
+
+/*----- Column(s) Gap -----*/
+.gbox-gap-col-xs {
+  grid-column-gap: 0.5rem;
+}
+
+.gbox-gap-col-sm {
+  grid-column-gap: 1rem;
+}
+
+.gbox-gap-col-md {
+  grid-column-gap: 1.25rem;
+}
+
+.gbox-gap-col-xl {
+  grid-column-gap: 1.5rem;
+}
+
+/*----- Row(s) Gap -----*/
+.gbox-gap-row-xs {
+  grid-row-gap: 0.5rem;
+}
+
+.gbox-gap-row-sm {
+  grid-row-gap: 1rem;
+}
+
+.gbox-gap-row-md {
+  grid-row-gap: 1.25rem;
+}
+
+.gbox-gap-row-xl {
+  grid-row-gap: 1.5rem;
+}
+
+/***------------------
+    Grid Item Classes
+-------------------***/
+/*----- Item Position -----*/
+/*----- X Axis Position -----*/
+.gitem-start-x, .gitem-x-start {
+  justify-self: start;
+}
+
+.gitem-end-x, .gitem-x-end {
+  justify-self: end;
+}
+
+.gitem-center-x, .gitem-x-center {
+  justify-self: center;
+}
+
+/*----- Y Axis Position -----*/
+.gitem-start-y, .gitem-y-start {
+  align-self: start;
+}
+
+.gitem-end-y, .gitem-y-end {
+  align-self: end;
+}
+
+.gitem-center-y, .gitem-y-center {
+  align-self: center;
+}
+
+/*------ X and Y Axis Position --------*/
+.gitem-topleft-xy, .gitem-xy-tl {
+  justify-self: start;
+  align-self: start;
+}
+
+.gitem-topright-xy, .gitem-xy-tr {
+  justify-self: end;
+  align-self: start;
+}
+
+.gitem-bottomright-xy, .gitem-xy-br {
+  justify-self: end;
+  align-self: end;
+}
+
+.gitem-bottomleft-xy, .gitem-xy-bl {
+  justify-self: start;
+  align-self: end;
+}
+
+.gitem-center-xy, .gitem-xy-center {
+  justify-self: center;
+  align-self: center;
+}
+
+.gitem-leftcenter-xy, .gitem-xy-lc {
+  justify-self: start;
+  align-self: center;
+}
+
+.gitem-rightcenter-xy, .gitem-xy-rc {
+  justify-self: end;
+  align-self: center;
+}
+
+.gitem-ctrstr-xy, .gitem-xy-ctrstr {
+  justify-self: center;
+  align-self: stretch;
+}
+
+.gitem-strctr-xy, .gitem-xy-strctr {
+  justify-self: stretch;
+  align-self: center;
+}
+
+/***------------------
+    Grid Item Flex
+-------------------***/
+.gitem-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/***------------------
+    Grid Bit Classes
+-------------------***/
+.gbit {
+  /* default values */
+  justify-self: stretch;
+  align-self: stretch;
+}
+
+/*----- X Axis Position -----*/
+.gbit-start-x, .gbit-x-start {
+  justify-self: start;
+}
+
+.gbit-end-x, .gbit-x-end {
+  justify-self: end;
+}
+
+.gbit-center-x, .gbit-x-center {
+  justify-self: center;
+}
+
+/*----- Y Axis Position -----*/
+.gbit-start-y, .gbit-y-start {
+  align-self: start;
+}
+
+.gbit-end-y, .gbit-y-end {
+  align-self: end;
+}
+
+.gbit-center-y, .gbit-y-center {
+  align-self: center;
+}
+
+/*----- X and Y Position -----*/
+.gbit-topleft-xy, .gbit-xy-tl {
+  justify-self: start;
+  align-self: start;
+}
+
+.gbit-topright-xy, .gbit-xy-tr {
+  justify-self: end;
+  align-self: start;
+}
+
+.gbit-bottomright-xy, .gbit-xy-br {
+  justify-self: end;
+  align-self: end;
+}
+
+.gbit-bottomleft-xy, .gbit-xy-bl {
+  justify-self: start;
+  align-self: end;
+}
+
+.gbit-center-xy, .gbit-xy-center {
+  justify-self: center;
+  align-self: center;
+}
+
+.gbit-leftcenter-xy, .gbit-xy-lc {
+  justify-self: start;
+  align-self: center;
+}
+
+.gbit-rightcenter-xy, .gbit-xy-rc {
+  justify-self: end;
+  align-self: center;
+}
+
+.gbit-ctrstr-xy, .gbit-xy-ctrstr {
+  justify-self: center;
+  align-self: stretch;
+}
+
+.gbit-strctr-xy, .gbit-xy-strctr {
+  justify-self: stretch;
+  align-self: center;
+}
+
+/***------------------
+    Grid Bit Flex
+-------------------***/
+.gbit-flex {
+  flex: 1 1 auto;
+}
+
+/*# sourceMappingURL=grid.css.map */
