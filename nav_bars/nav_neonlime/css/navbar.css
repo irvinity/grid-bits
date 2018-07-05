@@ -22,8 +22,8 @@ body{
     
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 1fr;
-    grid-auto-flow: column; /* gbox-navbar */
-    grid-auto-rows: 1fr; /* grows nav panel height for mb */
+    grid-auto-flow: column;
+    grid-auto-rows: 1fr;
 
     font-family: 'Jura', sans-serif; /*'Julius Sans One', sans-serif;*/
     background: #2aff6c;
@@ -49,7 +49,6 @@ body{
 
 .nav-item{
     display: none;
-    //visibility: collapse;
     position: relative;
     text-align: center;
     align-self: center;
@@ -57,14 +56,12 @@ body{
     padding: 0;
     cursor: pointer;
     color: rgba(0, 0, 0, 0.8);
-    //transition: all ease-in-out 500ms;
 }
 .nav-item:hover{
     text-decoration: underline;
 }
 .nav-item__toggle{
     display: block;
-    //visibility: visible;
     justify-self: center;
     font-weight: 600;
 }
@@ -103,12 +100,9 @@ body{
 }
 .nav-panel{
     display: none;
-    //visibility: collapse;
-    //transition: all ease-in-out 300ms;
 }
 .nav-panel__toggle{
     display: block;
-    //visibility: visible;
     grid-column: 1 / span 12;
     grid-row: 2 / span 5;
 
